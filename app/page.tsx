@@ -1,7 +1,15 @@
+"use client"
+import { useState } from "react";
 import OpenAIAssistant from "@/app/ui/openai-assistant";
-
+import ThemePicker from "@/app/ui/themePicker";
 
 export default function Home() {
+  const [selectedTheme, setSelectedTheme] = useState("");
+
+  const handleThemeClick = (theme) => {
+    setSelectedTheme(theme);
+  };
+
   return (
     <main>
       <div className="mx-auto mb-12 max-w-lg text-center">
@@ -11,10 +19,12 @@ export default function Home() {
             Pick an option from the selection of painting themes
           </div>
         </div>
+        <ThemePicker selectedTheme={selectedTheme} handleThemeClick={handleThemeClick}/>
         <OpenAIAssistant 
           assistantId="asst_gx3Htc0gLVNlpBQKLoefkXZZ"
           greeting="I am a helpful chat assistant. How can I help you?"
           messageLimit={10}
+          theme={selectedTheme}
         />
       </div>
     </main>
