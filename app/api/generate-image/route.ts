@@ -1,7 +1,7 @@
 import {NextApiRequest, NextApiResponse} from 'next';
 import OpenAI from 'openai';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export  async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'POST') {
         try {
             const { prompt } = req.body;
@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             const response = await openai.images.generate({
                 model: "dall-e-3",
-                prompt: "a white siamese cat",
+                prompt: prompt,
                 n: 1,
                 size: "1024x1024",
             })
