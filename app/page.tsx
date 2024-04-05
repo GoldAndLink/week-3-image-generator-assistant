@@ -2,9 +2,11 @@
 import { useState } from "react";
 import OpenAIAssistant from "@/app/ui/openai-assistant";
 import ThemePicker from "@/app/ui/themePicker";
+import ImageGenerator from "@/app/ui/imageGenerator";
 
 export default function Home() {
   const [selectedTheme, setSelectedTheme] = useState("");
+  const [paintingDescription, setPaintingDescription] = useState("");
 
   const handleThemeClick = (theme) => {
     setSelectedTheme(theme);
@@ -25,7 +27,9 @@ export default function Home() {
           greeting="I am a helpful chat assistant. How can I help you?"
           messageLimit={10}
           theme={selectedTheme}
+          setPaintingDescription={setPaintingDescription}
         />
+        <ImageGenerator paintingDescription={paintingDescription} />
       </div>
     </main>
   );
