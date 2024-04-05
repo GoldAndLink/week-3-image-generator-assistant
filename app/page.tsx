@@ -18,7 +18,7 @@ export default function Home() {
       <div className="mx-auto mb-12 max-w-lg p-4 text-center flex-grow">
         <div>
           <h1 className="mb-4 text-5xl font-extrabold leading-none tracking-tight  md:text-5xl lg:text-5xl">
-            AI Art Generator
+            AI Art Generator  🎨
           </h1>
           <div className="mb-6 text-normal font-normal text-gray-500">
             Pick an option from the selection of painting themes

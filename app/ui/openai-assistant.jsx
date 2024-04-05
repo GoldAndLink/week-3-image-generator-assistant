@@ -126,7 +126,7 @@ export default function OpenAIAssistant({
                         className="border rounded w-full py-2 px-3 text-gray-700"
                         onChange={handlePromptChange}
                         value={prompt}
-                        placeholder="prompt" />
+                        placeholder="Describe the image you want to see" />
                     {isLoading ?
                         <button
                             disabled
@@ -136,7 +136,7 @@ export default function OpenAIAssistant({
                         :
                         <button
                             disabled={prompt.length == 0}
-                            className="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            className="ml-2 bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             <AiOutlineSend />
                         </button>
                     }

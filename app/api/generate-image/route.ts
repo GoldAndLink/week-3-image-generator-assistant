@@ -14,10 +14,9 @@ export async function POST(req: Request) {
     prompt: prompt.substring(0, Math.min(prompt.length, 1000)),
     size: "1024x1024",
     quality: "standard",
-    response_format: "url", 
+    response_format: "url",
     n: 1,
   });
-  console.log(JSON.stringify(response.data[0].url))
 const imageUrl = response.data[0].url;
 return new Response(JSON.stringify({ imageUrl }));
 }
