@@ -62,7 +62,9 @@ export default function OpenAIAssistant({
             const {value, done} = await reader.read();
 
             if (done) {
-                break;
+                // Todo: console.log streamingMessage to check if the final result is there. If yes then set the paintingDescription using setPaintingDescription
+              break;
+
             }
 
             const strChunk = new TextDecoder().decode(value).trim();
