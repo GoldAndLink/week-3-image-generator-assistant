@@ -2,22 +2,23 @@
 
 ## For consolidating the knowledge acquired in this week, the students should complete the following project:
 
-- [ x] 1. Create a GitHub repository for your project.
-- [ x] 2. Add all members of your group.
-- [ x] 3. Create a README.md file with the description of your project.
-- [ x] 4. Create a new application from scratch using NextJS.
-- [ x] 5. Create an assistant in OpenAI that is able to suggest and describe a painting based on a short description from the user.
-- [x ] 6. Configure the assistant prompt to be efficient at answering strictly painting descriptions.
-- [x ] 7. Create a page for the user to pick an option from a selection of painting themes.
-- [x ] 8. Include a button to send a message to the assistant for it to generate a painting description with the selected theme.
-- [x ] 9. When the assistant answers, display the generated output in a text area.
-- [x ] 10. Create a button for the user to request the image to be generated based on the assistant's output.
-- [ x] 11. Create a form after the button for the user to choose the image generation parameters.
-- [ x] 12. Include a button to request the image to be generated.
-- [ x] 13. Ask the Image Generation API to generate the image.
+- [x] 1. Create a GitHub repository for your project.
+- [x] 2. Add all members of your group.
+- [x] 3. Create a README.md file with the description of your project.
+- [x] 4. Create a new application from scratch using NextJS.
+- [x] 5. Create an assistant in OpenAI that is able to suggest and describe a painting based on a short description from the user.
+- [x] 6. Configure the assistant prompt to be efficient at answering strictly painting descriptions.
+- [x] 7. Create a page for the user to pick an option from a selection of painting themes.
+- [x] 8. Include a button to send a message to the assistant for it to generate a painting description with the selected theme.
+- [x] 9. When the assistant answers, display the generated output in a text area.
+- [x] 10. Create a button for the user to request the image to be generated based on the assistant's output.
+- [x] 11. Create a form after the button for the user to choose the image generation parameters.
+- [x] 12. Include a button to request the image to be generated.
+- [x] 13. Ask the Image Generation API to generate the image.
 - [ ] 14. Display a loader while the image is being generated.
 - [ ] 15. Display the image on the page when it is generated.
 - [ ] 16. Submit your project in the submission form.
+
 
 
 ## Next Steps
