@@ -1,0 +1,23 @@
+Index: app/page.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import OpenAIAssistant from \"@/app/ui/openai-assistant\";\n\n\nexport default function Home() {\n  return (\n    <main>\n      <div className=\"mx-auto mb-12 max-w-lg text-center\">\n        <div className=\"m-4\">\n          <h1 className=\"mb-4 text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl\">AI Art Generator</h1>\n          <div className=\"mb-6 text-normal font-normal text-gray-500\">\n            Pick an option from the selection of painting themes\n          </div>\n        </div>\n        <OpenAIAssistant \n          assistantId=\"asst_gx3Htc0gLVNlpBQKLoefkXZZ\"\n          greeting=\"I am a helpful chat assistant. How can I help you?\"\n          messageLimit={10}\n        />\n      </div>\n    </main>\n  );\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/page.tsx b/app/page.tsx
+--- a/app/page.tsx	(revision 9fb30fb0de9b09b9b89bc6f74a82dc05abf4cc6b)
++++ b/app/page.tsx	(date 1712337016897)
+@@ -11,8 +11,8 @@
+             Pick an option from the selection of painting themes
+           </div>
+         </div>
+-        <OpenAIAssistant 
+-          assistantId="asst_gx3Htc0gLVNlpBQKLoefkXZZ"
++        <OpenAIAssistant
++          assistantId="asst_76Mc2DIexorhqncbWqnbuc2T"
+           greeting="I am a helpful chat assistant. How can I help you?"
+           messageLimit={10}
+         />
+diff --git a/env.local b/env.local
+new file mode 100644

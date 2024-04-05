@@ -1,0 +1,21 @@
+Index: app/page.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"use client\"\nimport { useState } from \"react\";\nimport OpenAIAssistant from \"@/app/ui/openai-assistant\";\n\nexport default function Home() {\n  const [selectedTheme, setSelectedTheme] = useState(\"\");\n\n  const handleThemeClick = (theme) => {\n    setSelectedTheme(theme);\n  };\n\n  return (\n    <main>\n      <div className=\"mx-auto mb-12 max-w-lg text-center\">\n        <div className=\"m-4\">\n          <h1 className=\"mb-4 text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl\">AI Art Generator</h1>\n          <div className=\"mb-6 text-normal font-normal text-gray-500\">\n            Pick an option from the selection of painting themes\n          </div>\n        </div>\n        <div className=\"flex justify-center space-x-4\">\n          <button\n            className={`px-6 py-3 rounded-lg shadow-md focus:outline-none focus:ring-2 ${\n              selectedTheme === \"Landscape\" ? \"bg-blue-600 focus:ring-blue-400\" : \"bg-blue-500 hover:bg-blue-600 focus:ring-blue-400\"\n            }`}\n            onClick={() => handleThemeClick(\"Landscape\")}\n          >\n            Landscape\n          </button>\n          <button\n            className={`px-6 py-3 rounded-lg shadow-md focus:outline-none focus:ring-2 ${\n              selectedTheme === \"Space\" ? \"bg-purple-600 focus:ring-purple-400\" : \"bg-purple-500 hover:bg-purple-600 focus:ring-purple-400\"\n            }`}\n            onClick={() => handleThemeClick(\"Space\")}\n          >\n            Space\n          </button>\n          <button\n            className={`px-6 py-3 rounded-lg shadow-md focus:outline-none focus:ring-2 ${\n              selectedTheme === \"Nature\" ? \"bg-green-600 focus:ring-green-400\" : \"bg-green-500 hover:bg-green-600 focus:ring-green-400\"\n            }`}\n            onClick={() => handleThemeClick(\"Nature\")}\n          >\n            Nature\n          </button>\n          <button\n            className={`px-6 py-3 rounded-lg shadow-md focus:outline-none focus:ring-2 ${\n              selectedTheme === \"Humanity\" ? \"bg-orange-600 focus:ring-orange-400\" : \"bg-orange-500 hover:bg-orange-600 focus:ring-orange-400\"\n            }`}\n            onClick={() => handleThemeClick(\"Humanity\")}\n          >\n            Humanity\n          </button>\n        </div>\n        <OpenAIAssistant \n          assistantId=\"asst_gx3Htc0gLVNlpBQKLoefkXZZ\"\n          greeting=\"I am a helpful chat assistant. How can I help you?\"\n          messageLimit={10}\n        />\n      </div>\n    </main>\n  );\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/page.tsx b/app/page.tsx
+--- a/app/page.tsx	
++++ b/app/page.tsx	
+@@ -52,8 +52,8 @@
+             Humanity
+           </button>
+         </div>
+-        <OpenAIAssistant 
+-          assistantId="asst_gx3Htc0gLVNlpBQKLoefkXZZ"
++        <OpenAIAssistant
++          assistantId="asst_76Mc2DIexorhqncbWqnbuc2T"
+           greeting="I am a helpful chat assistant. How can I help you?"
+           messageLimit={10}
+         />
