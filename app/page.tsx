@@ -21,7 +21,7 @@ export default function Home() {
         </div>
         <ThemePicker selectedTheme={selectedTheme} handleThemeClick={handleThemeClick}/>
         <OpenAIAssistant
-          assistantId="asst_gx3Htc0gLVNlpBQKLoefkXZZ"
+          assistantId="asst_76Mc2DIexorhqncbWqnbuc2T"
           greeting="I am a helpful chat assistant. How can I help you?"
           messageLimit={10}
           theme={selectedTheme}
