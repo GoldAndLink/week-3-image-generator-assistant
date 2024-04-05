@@ -1,0 +1,27 @@
+import {NextApiRequest, NextApiResponse} from 'next';
+import OpenAI from 'openai';
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    if (req.method === 'POST') {
+        try {
+            const { prompt } = req.body;
+            const openai = new OpenAI();
+
+            const response = await openai.createImage({
+                model: "dall-e-3",
+                prompt: "a white siamese cat",
+                n: 1,
+                size: "1024x1024",
+            });
+
+            const imageUrl = response.data.data[0].url;
+            res.status(200).json({ imageUrl });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Failed to generate image' });
+        }
+    } else {
+        res.setHeader('Allow', ['POST']);
+        res.status(405).end(`Method ${req.method} Not Allowed`);
+    }
+}
