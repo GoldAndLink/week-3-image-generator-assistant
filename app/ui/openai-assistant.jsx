@@ -8,6 +8,7 @@ export default function OpenAIAssistant({
     assistantId,
     greeting = "I am a helpful chat assistant. How can I help you?",
     messageLimit = 10,
+    theme,
 }) {
     const [isLoading, setIsLoading] = useState(false);
     const [threadId, setThreadId] = useState();
@@ -43,7 +44,7 @@ export default function OpenAIAssistant({
                 {
                     id: "temp_user",
                     role: "user",
-                    content: prompt,
+                    content: prompt + ` based on the following theme: ${theme}`,
                 }
             ]
         );
