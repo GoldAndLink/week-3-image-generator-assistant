@@ -9,6 +9,7 @@ export default function OpenAIAssistant({
     greeting = "I am a helpful chat assistant. How can I help you?",
     messageLimit = 10,
     theme,
+    setPaintingDescription,
 }) {
     const [isLoading, setIsLoading] = useState(false);
     const [threadId, setThreadId] = useState();
