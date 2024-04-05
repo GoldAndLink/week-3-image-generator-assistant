@@ -1,0 +1,94 @@
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1712338624179)
++++ b/.idea/vcs.xml	(date 1712338624179)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+Index: .idea/cody_history.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/cody_history.xml b/.idea/cody_history.xml
+new file mode 100644
+--- /dev/null	(date 1712338655370)
++++ b/.idea/cody_history.xml	(date 1712338655370)
+@@ -0,0 +1,38 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ChatHistory">
++    <chats>
++      <list>
++        <chat>
++          <accountId value="VXNlcjoxMDQ4Njg=" />
++          <internalId value="3a82ae97-5774-4e34-bf9e-633b2aee69c7" />
++          <llm>
++            <llm>
++              <model value="anthropic/claude-3-sonnet-20240229" />
++              <provider value="Anthropic" />
++              <title value="Claude 3 Sonnet" />
++            </llm>
++          </llm>
++        </chat>
++        <chat>
++          <accountId value="VXNlcjoxMDQ4Njg=" />
++          <internalId value="266ef220-391a-4013-81ae-4aeeb6c4509b" />
++          <llm>
++            <llm>
++              <model value="anthropic/claude-3-sonnet-20240229" />
++              <provider value="Anthropic" />
++              <title value="Claude 3 Sonnet" />
++            </llm>
++          </llm>
++        </chat>
++      </list>
++    </chats>
++    <defaultLlm>
++      <llm>
++        <model value="anthropic/claude-3-sonnet-20240229" />
++        <provider value="Anthropic" />
++        <title value="Claude 3 Sonnet" />
++      </llm>
++    </defaultLlm>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/Project_Default.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+new file mode 100644
+--- /dev/null	(date 1712338655344)
++++ b/.idea/inspectionProfiles/Project_Default.xml	(date 1712338655344)
+@@ -0,0 +1,16 @@
++<component name="InspectionProjectProfileManager">
++  <profile version="1.0">
++    <option name="myName" value="Project Default" />
++    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
++      <option name="ignoredPackages">
++        <value>
++          <list size="3">
++            <item index="0" class="java.lang.String" itemvalue="python" />
++            <item index="1" class="java.lang.String" itemvalue="pyheif" />
++            <item index="2" class="java.lang.String" itemvalue="jsonlib" />
++          </list>
++        </value>
++      </option>
++    </inspection_tool>
++  </profile>
++</component>
+\ No newline at end of file
+diff --git a/env.local b/env.local
+new file mode 100644

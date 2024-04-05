@@ -5,7 +5,11 @@
       <list>
         <chat>
           <accountId value="VXNlcjoxMDQ4Njg=" />
+<<<<<<< HEAD
+          <internalId value="3a82ae97-5774-4e34-bf9e-633b2aee69c7" />
+=======
           <internalId value="94b7dbc8-385a-46e6-9d97-a3c9d3a39413" />
+>>>>>>> main
           <llm>
             <llm>
               <model value="anthropic/claude-3-sonnet-20240229" />
@@ -16,7 +20,11 @@
         </chat>
         <chat>
           <accountId value="VXNlcjoxMDQ4Njg=" />
+<<<<<<< HEAD
+          <internalId value="266ef220-391a-4013-81ae-4aeeb6c4509b" />
+=======
           <internalId value="6c0b5709-7a80-4afa-b3d8-4065d4d75fe3" />
+>>>>>>> main
           <llm>
             <llm>
               <model value="anthropic/claude-3-sonnet-20240229" />
@@ -35,4 +43,8 @@
       </llm>
     </defaultLlm>
   </component>
+<<<<<<< HEAD
 </project>
+=======
+</project>
+>>>>>>> main
