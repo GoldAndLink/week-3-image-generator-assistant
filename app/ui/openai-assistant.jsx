@@ -71,6 +71,7 @@ export default function OpenAIAssistant({
             const { value, done } = await reader.read();
 
             if (done) {
+                // Todo: console.log streamingMessage to check if the final result is there. If yes then set the paintingDescription using setPaintingDescription
               break;
             }
             console.log("Is this the final result?", value)
