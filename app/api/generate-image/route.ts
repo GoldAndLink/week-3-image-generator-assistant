@@ -7,14 +7,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const { prompt } = req.body;
             const openai = new OpenAI();
 
-            const response = await openai.createImage({
+            const response = await openai.images.generate({
                 model: "dall-e-3",
                 prompt: "a white siamese cat",
                 n: 1,
                 size: "1024x1024",
-            });
+            })
 
-            const imageUrl = response.data.data[0].url;
+            const imageUrl = response.data
+            console.log(imageUrl)
             res.status(200).json({ imageUrl });
         } catch (error) {
             console.error(error);
