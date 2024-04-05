@@ -5,8 +5,8 @@ import ThemePicker from "@/app/ui/themePicker";
 import ImageGenerator from "@/app/ui/imageGenerator";
 
 export default function Home() {
-  const [selectedTheme, setSelectedTheme] = useState("");
-  const [paintingDescription, setPaintingDescription] = useState("");
+  const [selectedTheme, setSelectedTheme] = useState(null);
+  const [paintingDescription, setPaintingDescription] = useState(null);
 
   const handleThemeClick = (theme) => {
     setSelectedTheme(theme);
