@@ -1,28 +1,23 @@
-import {NextApiRequest, NextApiResponse} from 'next';
-import OpenAI from 'openai';
+import OpenAI from "openai";
 
-export  async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method === 'POST') {
-        try {
-            const { prompt } = req.body;
-            const openai = new OpenAI();
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
-            const response = await openai.images.generate({
-                model: "dall-e-3",
-                prompt: prompt,
-                n: 1,
-                size: "1024x1024",
-            })
+export const runtime = "edge";
 
-            const imageUrl = response.data
-            console.log(imageUrl)
-            res.status(200).json({ imageUrl });
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ error: 'Failed to generate image' });
-        }
-    } else {
-        res.setHeader('Allow', ['POST']);
-        res.status(405).end(`Method ${req.method} Not Allowed`);
-    }
+export async function POST(req: Request) {
+  const { message } = await req.json();
+  const prompt = `Generate an image that describes the following painting: ${message}`;
+  const response = await openai.images.generate({
+    model: "dall-e-2",
+    prompt: prompt.substring(0, Math.min(prompt.length, 1000)),
+    size: "1024x1024",
+    quality: "standard",
+    response_format: "url", 
+    n: 1,
+  });
+  console.log(JSON.stringify(response.data[0].url))
+const imageUrl = response.data[0].url;
+return new Response(JSON.stringify({ imageUrl }));
 }

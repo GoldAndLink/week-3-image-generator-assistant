@@ -1,46 +1,61 @@
-"use client";
+"use client"
 import { useState } from "react";
 
-export default function ImageGenerator({ paintingDescription }) {
+const ImageGenerator = ({ paintingDescription }) => {
   const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
+    if (!paintingDescription) return;
+    
+    setLoading(true);
+    setError(null);
+    console.log(paintingDescription)
+    
     try {
       const response = await fetch("/api/generate-image", {
         method: "POST",
-        body: JSON.stringify({
-          paintingDescription,
-        }),
+        headers: {
+          'Content-Type': 'application/json',  
+        },
+        body: JSON.stringify({ message: paintingDescription }),
       });
-      setImage(response?.url);
-      // const data = await response.json();
-      // console.log('Generated image:', data);
+
+      if (!response.ok) {
+        throw new Error('Failed to generate image');
+      }
+
+      const { imageUrl } = await response.json();
+      setImage(imageUrl);
     } catch (error) {
       console.error("Error generating image:", error);
-      // Todo: Show an error message to the user
+      setError('Error generating image');
+    } finally {
+      setLoading(false);
     }
   };
-  // Todo: Add a loader
-
-  if (!paintingDescription) {
-    return null;
-  }
 
   return (
     <div>
+      {loading && <p>Loading...</p>}
+      {error && <p className="text-red-500">{error}</p>}
       {image ? (
-        <div className="mt-8 rounded-lg shadow-lg overflow-hidden">
-          <img src={image} alt="Generated Art" className="w-full h-auto" />
-        </div>
+       <div className="mt-8 rounded-lg shadow-lg overflow-hidden">
+    {console.log(image)}
+    <img src={image} alt="Generated Art" className="w-full h-auto" />
+  </div>
       ) : (
         <button
           onClick={handleSubmit}
-          className="mt-8 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+          disabled={loading}
+          className="mt-8 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:bg-blue-300"
         >
           Generate this art piece
         </button>
       )}
     </div>
   );
-}
+};
+
+export default ImageGenerator;
