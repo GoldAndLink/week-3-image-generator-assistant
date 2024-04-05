@@ -73,6 +73,7 @@ export default function OpenAIAssistant({
             if (done) {
               break;
             }
+            console.log("Is this the final result?", value)
 
             // parse server sent event
             const strChunk = new TextDecoder().decode(value).trim();
