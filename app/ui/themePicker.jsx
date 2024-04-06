@@ -8,8 +8,9 @@ const ThemeOption = ({ themeName, isSelected, onClick, imageUrl }) => (
         onClick={() => onClick(themeName.key)}
     >
 
-        <div className="rounded-[10px] p-4  !pt-16 sm:p-6 bg-stone-800">
-            <img src={imageUrl} alt={themeName.key} className=" size-42 object-cover rounded-lg mb-4"/>
+        <div className="rounded-[10px] p-4  !pt-12 sm:p-6 bg-stone-800">
+            <Image src={imageUrl} alt={themeName.key} width={200}
+                 height={200} className=" size-42 object-cover items-center justify-center rounded-lg mb-4"/>
             <h3 className="text-xl  font-semibold">{themeName.key}</h3>
         </div>
     </div>
