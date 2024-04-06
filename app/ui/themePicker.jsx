@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from "next/image";
 
 const ThemeOption = ({ themeName, isSelected, onClick, imageUrl }) => (
     <div
@@ -7,8 +8,8 @@ const ThemeOption = ({ themeName, isSelected, onClick, imageUrl }) => (
         onClick={() => onClick(themeName.key)}
     >
 
-        <div className="rounded-[10px] p-4 !pt-16 sm:p-6 bg-stone-800">
-            <img src={imageUrl} alt={themeName.key} className=" size-48 object-cover rounded-lg mb-4"/>
+        <div className="rounded-[10px] p-4  !pt-16 sm:p-6 bg-stone-800">
+            <img src={imageUrl} alt={themeName.key} className=" size-42 object-cover rounded-lg mb-4"/>
             <h3 className="text-xl  font-semibold">{themeName.key}</h3>
         </div>
     </div>

@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/cody_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cody_history.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ui/themePicker.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ui/themePicker.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +91,8 @@
       <workItem from="1712338554048" duration="511000" />
       <workItem from="1712339927532" duration="14195000" />
       <workItem from="1712358754668" duration="2784000" />
-      <workItem from="1712385501135" duration="1734000" />
+      <workItem from="1712385501135" duration="1956000" />
+      <workItem from="1712399122024" duration="404000" />
     </task>
     <servers />
   </component>
@@ -110,7 +110,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/aurelien" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>
