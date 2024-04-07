@@ -42,8 +42,8 @@ const ImageGenerator: React.FC<ImageGeneratorProps> = ({ paintingDescription }) 
             const { imageUrl } = await response.json();
             setImage(imageUrl);
         } catch (error) {
-            console.error("Error generating image:", error);
-            setError("Error generating image");
+            console.error("Error generating image:", errorMessage);
+            setError("errorMessage");
         } finally {
             setLoading(false);
         }
