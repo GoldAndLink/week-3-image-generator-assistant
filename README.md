@@ -63,3 +63,6 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Troubleshooting
+
+If you get an error when using the assistant it's an OpenAI issue. Then please create your own assistant using the content in the prompt.txt file and replace the assistantId in the page.tsx file (line 35) with yours.
