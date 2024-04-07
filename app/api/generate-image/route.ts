@@ -10,7 +10,7 @@ export async function POST(req: Request) {
   const { message } = await req.json();
   const prompt = `Generate an image that describes the following painting: ${message}`;
   const response = await openai.images.generate({
-    model: "dall-e-2",
+    model: "dall-e-3",
     prompt: prompt.substring(0, Math.min(prompt.length, 1000)),
     size: "1024x1024",
     quality: "standard",

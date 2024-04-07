@@ -15,9 +15,9 @@
 - [x] 11. Create a form after the button for the user to choose the image generation parameters.
 - [x] 12. Include a button to request the image to be generated.
 - [x] 13. Ask the Image Generation API to generate the image.
-- [ ] 14. Display a loader while the image is being generated.
-- [ ] 15. Display the image on the page when it is generated.
-- [ ] 16. Submit your project in the submission form.
+- [x] 14. Display a loader while the image is being generated.
+- [x] 15. Display the image on the page when it is generated.
+- [x] 16. Submit your project in the submission form.
 
 
 
