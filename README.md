@@ -19,7 +19,11 @@
 - [x] 15. Display the image on the page when it is generated.
 - [x] 16. Submit your project in the submission form.
 
+Kashi 
+What is missing:
+A - Display an error message when there is an issue with the image generation (search for the word: "Todo:" into the code you will find where you need to handle this error)
 
+B - Add and display parameters
 
 ## Next Steps
 
