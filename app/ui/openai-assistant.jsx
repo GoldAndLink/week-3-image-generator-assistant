@@ -135,7 +135,7 @@ export default function OpenAIAssistant({
                         </button>
                         :
                         <button
-                            disabled={prompt.length == 0}
+                            disabled={prompt.length === 0}
                             className="ml-2 bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             <AiOutlineSend />
                         </button>
@@ -153,7 +153,7 @@ export function OpenAIAssistantMessage({message}) {
             case 'assistant':
                 return <AiOutlineRobot/>;
             default:
-                return null; // It's good practice to handle unexpected values
+                return null;
         }
     }
 

@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38d98fa9-f05b-42c0-a4be-f70d4ce89623" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/cody_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cody_history.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ui/imageGenerator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ui/imageGenerator.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ui/themePicker.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ui/themePicker.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ui/openai-assistant.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ui/openai-assistant.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prompt.txt" beforeDir="false" afterPath="$PROJECT_DIR$/prompt.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +45,7 @@
 }</component>
   <component name="ProjectId" id="2egV4iJkBmJH5jipUSMdyqcHMLB" />
   <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -66,7 +68,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/mainframe/WebstormProjects/ai-bootcamp/week-3-image-generator-assistant2/node_modules/typescript/lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/mainframe/Developer/testing/week-3-image-generator-assistant/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -94,6 +96,7 @@
       <workItem from="1712358754668" duration="2784000" />
       <workItem from="1712385501135" duration="1956000" />
       <workItem from="1712399122024" duration="1784000" />
+      <workItem from="1712502974045" duration="3420000" />
     </task>
     <servers />
   </component>
