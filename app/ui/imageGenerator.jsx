@@ -4,6 +4,8 @@ import Image from "next/image";
 
 const ImageGenerator = ({paintingDescription}) => {
     const [image, setImage] = useState(null);
+    const [quality, setQuality] = useState(null);
+    const [style, setStyle] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -20,7 +22,7 @@ const ImageGenerator = ({paintingDescription}) => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({message: paintingDescription}),
+                body: JSON.stringify({message: paintingDescription, quality, style}),
             });
 
             if (!response.ok) {
