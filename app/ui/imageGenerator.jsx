@@ -56,7 +56,7 @@ const ImageGenerator = ({ paintingDescription }) => {
                     </button>
                     <div className="mt-4 space-y-2">
                         <div className="text-center">
-                            <h2 className="text-lg sm:text-xl text-gray-200">Choose your Quality</h2>
+                            <h2 className="text-3xl py-8 font-semibold mx-auto text-gray-200">Choose your Quality</h2>
                         </div>
                         <section className="flex flex-col sm:flex-row justify-center gap-4">
                             <div className="flex items-center">
@@ -67,9 +67,9 @@ const ImageGenerator = ({ paintingDescription }) => {
                                     value="standard"
                                     checked={quality === "standard"}
                                     onChange={(e) => setQuality(e.target.value)}
-                                    className="mr-2"
+                                    className="mr-2 "
                                 />
-                                <label htmlFor="standard" className="text-gray-200">Standard</label>
+                                <label htmlFor="standard" className="text-gray-200 text-xl font-mono">Standard</label>
                             </div>
                             <div className="flex items-center">
                                 <input
@@ -81,12 +81,12 @@ const ImageGenerator = ({ paintingDescription }) => {
                                     onChange={(e) => setQuality(e.target.value)}
                                     className="mr-2"
                                 />
-                                <label htmlFor="hd" className="text-gray-200">HD</label>
+                                <label htmlFor="hd" className="text-gray-200 text-xl font-mono">HD</label>
                             </div>
                         </section>
+                                <h2 className="text-3xl py-8 font-semibold mx-auto text-gray-200">Choose your Style</h2>
                         <section className="flex flex-col sm:flex-row justify-center gap-4">
                             <div className="text-center">
-                                <h2 className="text-lg sm:text-xl text-gray-200">Choose your Style</h2>
                             </div>
                             <div className="flex items-center">
                                 <input
@@ -98,7 +98,7 @@ const ImageGenerator = ({ paintingDescription }) => {
                                     onChange={(e) => setStyle(e.target.value)}
                                     className="mr-2"
                                 />
-                                <label htmlFor="vivid" className="text-gray-200">Vivid</label>
+                                <label htmlFor="vivid" className=" text-gray-200 text-xl font-mono">Vivid</label>
                             </div>
                             <div className="flex items-center">
                                 <input
@@ -110,7 +110,7 @@ const ImageGenerator = ({ paintingDescription }) => {
                                     onChange={(e) => setStyle(e.target.value)}
                                     className="mr-2"
                                 />
-                                <label htmlFor="natural" className="text-gray-200">Natural</label>
+                                <label htmlFor="natural" className="text-gray-200 text-xl font-mono">Natural</label>
                             </div>
                         </section>
                     </div>
