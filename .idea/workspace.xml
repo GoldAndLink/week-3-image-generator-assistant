@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38d98fa9-f05b-42c0-a4be-f70d4ce89623" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/ui/imageGenerator.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ui/imageGenerator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ui/imageGenerator.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ui/imageGenerator.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ui/openai-assistant.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ui/openai-assistant.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ui/themePicker.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ui/themePicker.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +96,7 @@
       <workItem from="1712358754668" duration="2784000" />
       <workItem from="1712385501135" duration="1956000" />
       <workItem from="1712399122024" duration="1784000" />
-      <workItem from="1712502974045" duration="4127000" />
+      <workItem from="1712502974045" duration="4832000" />
     </task>
     <servers />
   </component>

@@ -1,31 +1,48 @@
 'use client';
-import {useState} from 'react';
-import {AiOutlineRobot, AiOutlineSend, AiOutlineUser} from 'react-icons/ai';
+import { useState } from 'react';
+import { AiOutlineRobot, AiOutlineSend, AiOutlineUser } from 'react-icons/ai';
 import Markdown from 'react-markdown';
 
-export default function OpenAIAssistant({
-                                            assistantId,
-                                            greeting = 'I am a helpful chat assistant. How can I help you?',
-                                            messageLimit = 10,
-                                            theme,
-                                            setPaintingDescription,
-                                        }) {
+interface OpenAIAssistantProps {
+    assistantId: string;
+    greeting?: string;
+    messageLimit?: number;
+    theme: string;
+    setPaintingDescription: (description: string) => void;
+}
+
+interface Message {
+    id?: string;
+    role: 'user' | 'assistant';
+    content: string;
+}
+
+interface StreamingMessage extends Message {
+    content: string;
+}
+
+const OpenAIAssistant: React.FC<OpenAIAssistantProps> = ({
+                                                             assistantId,
+                                                             greeting = 'I am a helpful chat assistant. How can I help you?',
+                                                             messageLimit = 10,
+                                                             theme,
+                                                             setPaintingDescription,
+                                                         }) => {
     const [isLoading, setIsLoading] = useState(false);
-    const [threadId, setThreadId] = useState();
+    const [threadId, setThreadId] = useState<string | undefined>(undefined);
     const [prompt, setPrompt] = useState('');
-    const [messages, setMessages] = useState([]);
-    const [streamingMessage, setStreamingMessage] = useState({
+    const [messages, setMessages] = useState<Message[]>([]);
+    const [streamingMessage, setStreamingMessage] = useState<StreamingMessage>({
         role: 'assistant',
         content: '_Thinking..._',
     });
 
-    // set default greeting message
-    const greetingMessage = {
+    const greetingMessage: Message = {
         role: 'assistant',
         content: greeting,
     };
 
-    async function handleSubmit(e) {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         setStreamingMessage({
@@ -57,14 +74,12 @@ export default function OpenAIAssistant({
         let contentSnapshot = '';
         let newThreadId;
 
-        let reader = response.body.getReader();
+        let reader = response.body!.getReader();
         while (true) {
-            const {value, done} = await reader.read();
+            const { value, done } = await reader?.read();
 
             if (done) {
-                // Todo: console.log streamingMessage to check if the final result is there. If yes then set the paintingDescription using setPaintingDescription
-              break;
-
+                break;
             }
 
             const strChunk = new TextDecoder().decode(value).trim();
@@ -90,72 +105,65 @@ export default function OpenAIAssistant({
             }
         }
 
-        const messagesResponse = await fetch('/api/openai-assistant?' + new URLSearchParams({
-            threadId: newThreadId,
-            messageLimit: messageLimit,
-        }));
+        const messagesResponse = await fetch(
+            '/api/openai-assistant?' +
+            new URLSearchParams({
+                threadId: newThreadId!,
+                messageLimit: messageLimit.toString(),
+            })
+        );
         const allMessages = await messagesResponse.json();
         setMessages(allMessages);
         setPaintingDescription(allMessages[allMessages.length - 1].content);
         setIsLoading(false);
-    }
+    };
 
-    function handlePromptChange(e) {
+    const handlePromptChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPrompt(e.target.value);
-    }
+    };
 
     return (
         <div className="flex flex-col bg-slate-200 shadow-md">
-            {/*<OpenAIAssistantMessage*/}
-            {/*    message={greetingMessage}*/}
-            {/*/>*/}
-            {messages.map(m =>
-                <OpenAIAssistantMessage
-                    key={m.id}
-                    message={m}
+            {messages.map((m) => (
+                <OpenAIAssistantMessage key={m.id || m.content} message={m} />
+            ))}
+            {isLoading && <OpenAIAssistantMessage message={streamingMessage} />}
+            <form onSubmit={handleSubmit} className="m-2 flex">
+                <input
+                    disabled={isLoading}
+                    className="border rounded w-full py-2 px-3 text-gray-700"
+                    onChange={handlePromptChange}
+                    value={prompt}
+                    placeholder="Describe the image you want to see"
                 />
-            )}
-            {isLoading &&
-                <OpenAIAssistantMessage
-                    message={streamingMessage}
-                />
-            }
-                <form onSubmit={handleSubmit} className="m-2 flex">
-                    <input
-                        disabled={isLoading}
-                        className="border rounded w-full py-2 px-3 text-gray-700"
-                        onChange={handlePromptChange}
-                        value={prompt}
-                        placeholder="Describe the image you want to see" />
-                    {isLoading ?
-                        <button
-                            disabled
-                            className="ml-2  bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            <OpenAISpinner />
-                        </button>
-                        :
-                        <button
-                            disabled={prompt.length === 0}
-                            className="ml-2 bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            <AiOutlineSend />
-                        </button>
-                    }
-                </form>
-            </div>
-    )
-}
+                {isLoading ? (
+                    <button disabled className="ml-2 bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        <OpenAISpinner />
+                    </button>
+                ) : (
+                    <button
+                        disabled={prompt.length === 0}
+                        className="ml-2 bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    >
+                        <AiOutlineSend />
+                    </button>
+                )}
+            </form>
+        </div>
+    );
+};
 
-export function OpenAIAssistantMessage({message}) {
-    function displayRole(roleName) {
+const OpenAIAssistantMessage: React.FC<{ message: Message }> = ({ message }) => {
+    const displayRole = (roleName: Message['role']) => {
         switch (roleName) {
             case 'user':
-                return <AiOutlineUser/>;
+                return <AiOutlineUser />;
             case 'assistant':
-                return <AiOutlineRobot/>;
+                return <AiOutlineRobot />;
             default:
                 return null;
         }
-    }
+    };
 
     return (
         <div className="flex rounded text-gray-700 text-center bg-white px-4 py-2 m-2 shadow-md">
@@ -165,18 +173,28 @@ export function OpenAIAssistantMessage({message}) {
             </div>
         </div>
     );
-}
+};
 
-function OpenAISpinner() {
+const OpenAISpinner = () => {
     return (
-        <svg aria-hidden="true" role="status" className="inline w-4 h-4 text-white animate-spin" viewBox="0 0 100 101"
-             fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+            aria-hidden="true"
+            role="status"
+            className="inline w-4 h-4 text-white animate-spin"
+            viewBox="0 0 100 101"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
             <path
                 d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                fill="#E5E7EB"/>
+                fill="#E5E7EB"
+            />
             <path
                 d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                fill="currentColor"/>
+                fill="currentColor"
+            />
         </svg>
     );
-}
+};
+
+export default OpenAIAssistant;
